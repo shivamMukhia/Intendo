@@ -13,6 +13,7 @@ import VideoPlayer from "@/component/videoPlayer";
 import RelatedVideos from "@/component/RelatedVideos";
 import TakeNotesSection from "@/component/TakeNotesSection";
 import { useSubscriptions } from "@/context/subscriptionContext"; // ✅ assume you have auth context
+import Navbar from "@/component/navbar";
 
 export default function WatchPage() {
 	const searchParams = useSearchParams();
@@ -46,6 +47,8 @@ export default function WatchPage() {
 		video.snippet.categoryId === "27" ? "education" : "entertainment";
 
 	return (
+		<>
+		<Navbar />
 		<div className='flex flex-col lg:flex-row p-4 gap-6'>
 			{/* Video Section */}
 			<div className='flex-1'>
@@ -110,5 +113,6 @@ export default function WatchPage() {
 				)}
 			</div>
 		</div>
+		</>
 	);
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import SearchResultCard from "@/component/searchResultCard";
+import Navbar from "@/component/navbar";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -26,10 +27,13 @@ export default function SearchPage() {
   }, [query]);
 
   return (
+    <>
+    <Navbar />
     <div className="p-4 flex flex-col gap-4">
       {videos.map((video) => (
         <SearchResultCard key={video.id.videoId} video={video} />
       ))}
     </div>
+    </>
   );
 }
